@@ -17,13 +17,4 @@
   networking.networkmanager.enable = true;
 
   environment.systemPackages = [ inputs.disko.packages.${pkgs.system}.default ];
-
-  services.tailscale = {
-    enable = true;
-    openFirewall = true;
-    extraUpFlags = [ "--ssh" ];
-
-    # Ephemeral + not pre-approved
-    authKeyFile = ./tailscale-auth-key.dec;
-  };
 }
